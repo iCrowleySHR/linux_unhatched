@@ -50,3 +50,14 @@ Para sair do shell de root, basta você utilizar esse comando:
 ```bash
 exit
 ```
+
+# Comando `sudo`
+
+O comando `sudo` permite que um usuário execute um comando como outro usuário sem criar um novo shell. Em vez disso, para executar um comando com privilégios administrativos, use-o como um argumento para o comando `sudo`.
+
+## Sintaxe
+
+```bash
+sudo [OPTIONS] comando
+```
+
