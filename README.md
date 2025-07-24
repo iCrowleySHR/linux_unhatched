@@ -338,3 +338,57 @@ less /var/log/syslog
 Ideal para ler logs ou arquivos extensos com controle.
 
 ---
+---
+
+## 🔢 Comando `sort`
+
+O comando `sort` organiza o conteúdo de arquivos **em ordem alfabética ou numérica**.
+
+### 🔹 Sintaxe
+```bash
+sort [opções] [arquivo]
+```
+
+### 🔹 Exemplos
+```bash
+sort nomes.txt                   # Ordem alfabética
+sort -r nomes.txt                # Ordem reversa
+sort -n numeros.txt              # Ordenação numérica
+sort -u palavras.txt             # Remove duplicatas
+```
+
+### 🔹 Combinando com outros comandos
+```bash
+cat dados.txt | sort | uniq
+```
+
+---
+
+## 📊 Comando `wc`
+
+O comando `wc` (word count) exibe o número de **linhas, palavras e caracteres** em arquivos.
+
+### 🔹 Sintaxe
+```bash
+wc [opções] [arquivo]
+```
+
+### 🔹 Opções comuns
+- `-l` → Contar linhas
+- `-w` → Contar palavras
+- `-c` → Contar bytes
+- `-m` → Contar caracteres
+
+### 🔹 Exemplos
+```bash
+wc arquivo.txt                  # Linhas, palavras e bytes
+wc -l arquivo.txt               # Apenas número de linhas
+wc -w texto.txt                 # Apenas número de palavras
+```
+
+### 🔹 Combinando com outros comandos
+```bash
+cat arquivo.txt | wc -l         # Conta linhas da saída do cat
+```
+
+---
