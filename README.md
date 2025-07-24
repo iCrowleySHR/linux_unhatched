@@ -292,3 +292,49 @@ find . -user nome_usuario                 # Arquivos pertencentes a um usuário
 ```
 
 ---
+
+---
+
+## 📖 Comando `cat`
+
+O comando `cat` (concatenate) é usado para **exibir o conteúdo de arquivos** no terminal.
+
+### 🔹 Sintaxe
+```bash
+cat [arquivo]
+```
+
+### 🔹 Exemplos
+```bash
+cat texto.txt                 # Exibe o conteúdo do arquivo
+cat arquivo1 arquivo2         # Mostra ambos, um após o outro
+cat > novo.txt                # Cria novo arquivo (CTRL+D para sair)
+```
+
+⚠️ Com arquivos muito grandes, `cat` pode rolar rápido demais. Nesse caso, use `less`.
+
+---
+
+## 📚 Comando `less`
+
+O comando `less` permite **navegar por arquivos longos** de forma interativa, **página por página**.
+
+### 🔹 Sintaxe
+```bash
+less [arquivo]
+```
+
+### 🔹 Navegação
+- `barra de espaço` → avança uma página
+- `seta para cima/baixo` → rola linha a linha
+- `/palavra` → busca por palavra
+- `q` → sai do visualizador
+
+### 🔹 Exemplo
+```bash
+less /var/log/syslog
+```
+
+Ideal para ler logs ou arquivos extensos com controle.
+
+---
