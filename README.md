@@ -199,3 +199,96 @@ cp -r pasta_origem pasta_destino
 ```
 
 ---
+
+
+## 🔗 Comando `ln` – Entendendo e Criando Links
+
+O comando `ln` é usado para **criar links** para arquivos ou diretórios no Linux.
+
+### 🔹 Tipos de Links
+- **Hard Link (link físico)**: Aponta diretamente para os dados do arquivo no disco. Só pode ser criado dentro do mesmo sistema de arquivos.
+- **Symbolic Link (link simbólico ou "atalho")**: Aponta para o caminho de outro arquivo ou diretório. Pode cruzar sistemas de arquivos.
+
+### 🔹 Sintaxe
+```bash
+ln arquivo_original link_fisico
+ln -s destino link_simbolico
+```
+
+### 🔹 Exemplos
+```bash
+ln meu_script.sh backup_script.sh       # Hard link
+ln -s /var/log/syslog log_syslog        # Link simbólico
+```
+
+### 🔹 Visualizar links
+```bash
+ls -l
+```
+
+Saída:
+```bash
+lrwxrwxrwx 1 usuario grupo  12 Jul 24 10:00 log_syslog -> /var/log/syslog
+```
+
+---
+
+## 📦 Arquivando e Compactando Arquivos e Diretórios
+
+Linux oferece utilitários para **arquivar** e **compactar** arquivos, otimizando espaço em disco.
+
+### 🔹 Arquivar com `tar`
+```bash
+tar -cvf arquivo.tar pasta/       # Cria um arquivo tar
+tar -xvf arquivo.tar              # Extrai arquivo tar
+```
+
+- `c` → criar
+- `v` → verboso (detalhado)
+- `f` → nome do arquivo
+
+### 🔹 Compactar com `gzip` ou `bzip2`
+```bash
+gzip arquivo.txt     # Cria arquivo.txt.gz
+bzip2 arquivo.txt    # Cria arquivo.txt.bz2
+```
+
+### 🔹 Descompactar
+```bash
+gunzip arquivo.txt.gz
+bunzip2 arquivo.txt.bz2
+```
+
+### 🔹 Arquivar e compactar juntos
+```bash
+tar -czvf arquivo.tar.gz pasta/     # Usando gzip
+tar -cjvf arquivo.tar.bz2 pasta/    # Usando bzip2
+```
+
+### 🔹 Descompactar `.tar.gz` e `.tar.bz2`
+```bash
+tar -xzvf arquivo.tar.gz
+tar -xjvf arquivo.tar.bz2
+```
+
+---
+
+## 🔍 Procurando por Arquivos
+
+O comando `find` localiza arquivos e diretórios com base em critérios como nome, tipo, tamanho ou data.
+
+### 🔹 Sintaxe
+```bash
+find [caminho] [condições]
+```
+
+### 🔹 Exemplos
+```bash
+find . -name "teste.txt"                  # Procura por nome
+find /home -type d -name "projetos"       # Diretórios com nome "projetos"
+find / -type f -size +10M                 # Arquivos maiores que 10 MB
+find . -mtime -7                          # Arquivos modificados nos últimos 7 dias
+find . -user nome_usuario                 # Arquivos pertencentes a um usuário
+```
+
+---
