@@ -199,16 +199,3 @@ cp -r pasta_origem pasta_destino
 ```
 
 ---
-
-## ✅ Dicas Finais
-
-- Use `-i` com comandos perigosos para confirmar antes:
-```bash
-rm -i arquivo.txt
-mv -i arquivo.txt novo.txt
-cp -i arquivo.txt /destino/
-```
-
-- Sempre use `ls` para conferir antes de apagar ou mover algo importante.
-
----
