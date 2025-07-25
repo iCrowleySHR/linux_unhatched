@@ -770,3 +770,134 @@ A saída mostra o número do job e o PID:
 
 ---
 
+## 📊 Comando `top`
+
+O `top` mostra **processos em tempo real**, consumo de CPU, RAM e uso do sistema.
+
+### 🔹 Sintaxe
+```bash
+top
+```
+
+### 🔹 Navegação
+- `q` → sair
+- `P` → ordenar por uso de CPU
+- `M` → ordenar por uso de memória
+- `k` → matar processo (inserir PID)
+- `h` → ajuda
+
+### 🔹 Exemplo
+```bash
+top
+```
+
+Ideal para **monitorar o desempenho do sistema** em tempo real.
+
+---
+
+## 🧠 Comando `free`
+
+Mostra o **uso da memória RAM e SWAP**.
+
+### 🔹 Sintaxe
+```bash
+free [opções]
+```
+
+### 🔹 Opções comuns
+- `-h` → Exibe tamanhos legíveis (MB, GB)
+- `-m` → Mostra em megabytes
+- `-g` → Mostra em gigabytes
+
+### 🔹 Exemplo
+```bash
+free -h
+```
+
+Saída mostra:
+- Memória total
+- Memória usada
+- Memória livre
+- Buffer/cache
+- SWAP
+
+---
+
+## 💻 Comando `uname`
+
+Mostra **informações sobre o sistema operacional e kernel**.
+
+### 🔹 Sintaxe
+```bash
+uname [opções]
+```
+
+### 🔹 Opções úteis
+- `-a` → Todas as informações
+- `-r` → Versão do kernel
+- `-s` → Nome do sistema
+- `-m` → Arquitetura da máquina
+
+### 🔹 Exemplo
+```bash
+uname -a
+```
+
+Saída inclui: nome do SO, hostname, versão do kernel, data de compilação e arquitetura.
+
+---
+
+## ⏱️ Comando `uptime`
+
+Exibe **há quanto tempo o sistema está ligado**, usuários ativos e carga do sistema.
+
+### 🔹 Sintaxe
+```bash
+uptime
+```
+
+### 🔹 Exemplo
+```bash
+uptime
+```
+
+Saída exemplo:
+```
+15:32:11 up 3 days,  4:12,  2 users,  load average: 0.15, 0.20, 0.25
+```
+
+- `up` → tempo desde o último boot
+- `users` → número de usuários logados
+- `load average` → carga média do sistema (1, 5 e 15 min)
+
+---
+
+## 💾 Comando `df`
+
+O comando `df` mostra o **uso de espaço em disco por partição**.
+
+### 🔹 Sintaxe
+```bash
+df [opções]
+```
+
+### 🔹 Opções úteis
+- `-h` → Tamanhos legíveis (MB, GB)
+- `-T` → Mostra tipo de sistema de arquivos
+- `-x tipo` → Exclui tipos (ex: `tmpfs`)
+
+### 🔹 Exemplo
+```bash
+df -h
+```
+
+Saída mostra:
+- Sistema de arquivos
+- Tamanho total
+- Usado
+- Disponível
+- Ponto de montagem
+
+---
+
+
