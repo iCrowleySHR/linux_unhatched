@@ -903,6 +903,7 @@ Saída mostra:
 ## 📦 Comando `apt-get`
 
 O comando `apt-get` é usado para **gerenciar pacotes** em distribuições baseadas no Debian, como **Ubuntu, Kali, Mint**, entre outras.
+Não precisa de SUDO caso você esteja como root.
 
 ### 🔹 Sintaxe
 ```bash
