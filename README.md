@@ -900,4 +900,48 @@ Saída mostra:
 
 ---
 
+## 📦 Comando `apt-get`
+
+O comando `apt-get` é usado para **gerenciar pacotes** em distribuições baseadas no Debian, como **Ubuntu, Kali, Mint**, entre outras.
+
+### 🔹 Sintaxe
+```bash
+sudo apt-get [opção] [pacote]
+```
+
+### 🔹 Principais comandos
+
+| Comando                        | Ação                                                        |
+|-------------------------------|-------------------------------------------------------------|
+| `sudo apt-get update`         | Atualiza a lista de pacotes disponíveis (não instala nada)  |
+| `sudo apt-get upgrade`        | Atualiza todos os pacotes instalados para as versões mais recentes |
+| `sudo apt-get install nome`   | Instala um pacote                                            |
+| `sudo apt-get remove nome`    | Remove um pacote (mantém configurações)                     |
+| `sudo apt-get purge nome`     | Remove um pacote e suas configurações                       |
+| `sudo apt-get autoremove`     | Remove pacotes instalados automaticamente e não utilizados  |
+| `sudo apt-get clean`          | Limpa arquivos de cache                                      |
+| `sudo apt-get dist-upgrade`   | Atualiza pacotes e gerencia dependências (avançado)         |
+
+---
+
+### 🔹 Exemplos
+```bash
+sudo apt-get update
+sudo apt-get install curl
+sudo apt-get remove gimp
+sudo apt-get upgrade
+sudo apt-get autoremove
+```
+
+---
+
+### 🔹 Dica
+Para quem prefere uma interface mais moderna e amigável:
+```bash
+sudo apt install nome
+```
+
+Esse comando (`apt`) é mais recente e recomendado para uso interativo. Já `apt-get` é ideal para scripts e automações.
+
+---
 
