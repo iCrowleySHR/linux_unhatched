@@ -1065,3 +1065,100 @@ sudo shutdown -c
 ```
 
 ---
+
+## 👤 Gerenciamento de Usuários no Linux
+
+Esses comandos são usados para **criar, modificar, excluir e definir senhas de usuários**. Normalmente exigem permissões de superusuário (`sudo`).
+
+---
+
+## 🔑 Comando `passwd`
+
+Altera a **senha de um usuário**.
+
+### 🔹 Sintaxe
+```bash
+passwd [usuário]
+```
+
+### 🔹 Exemplos
+```bash
+passwd                        # Altera a senha do usuário atual
+sudo passwd gustavo           # Altera a senha do usuário "gustavo"
+```
+
+Você será solicitado a digitar e confirmar a nova senha.
+
+---
+
+## ➕ Comando `useradd`
+
+Cria um **novo usuário no sistema**.
+
+### 🔹 Sintaxe
+```bash
+useradd [opções] nome_usuario
+```
+
+### 🔹 Exemplos
+```bash
+sudo useradd joao                       # Cria o usuário "joao"
+sudo useradd -m maria                   # Cria o usuário "maria" com diretório home
+sudo useradd -m -s /bin/bash ana        # Cria com shell bash
+```
+
+### 🔹 Opções comuns
+- `-m` → Cria diretório `/home/nome`
+- `-s` → Define o shell padrão
+- `-d` → Define o diretório home
+- `-G` → Adiciona o usuário a grupos extras
+
+---
+
+## 🧾 Comando `usermod`
+
+Modifica um **usuário existente**.
+
+### 🔹 Sintaxe
+```bash
+usermod [opções] nome_usuario
+```
+
+### 🔹 Exemplos
+```bash
+sudo usermod -s /bin/zsh joao           # Muda o shell padrão para zsh
+sudo usermod -aG sudo joao              # Adiciona "joao" ao grupo sudo
+sudo usermod -d /novo/home joao         # Muda o diretório home
+```
+
+### 🔹 Opções comuns
+- `-s` → Mudar o shell padrão
+- `-d` → Mudar diretório home
+- `-G` → Grupos adicionais
+- `-a` → Acrescenta (usar com `-G`)
+
+⚠️ Ao usar `-G`, sempre combine com `-a` para **não remover os grupos existentes**.
+
+---
+
+## ❌ Comando `userdel`
+
+Remove um **usuário do sistema**.
+
+### 🔹 Sintaxe
+```bash
+userdel [opções] nome_usuario
+```
+
+### 🔹 Exemplos
+```bash
+sudo userdel joao                     # Remove o usuário (sem apagar /home)
+sudo userdel -r maria                 # Remove o usuário e seu diretório home
+```
+
+### 🔹 Opção
+- `-r` → Remove o diretório home e arquivos do usuário
+
+⚠️ Use com cuidado, especialmente com `-r`, pois os arquivos do usuário serão apagados.
+
+---
