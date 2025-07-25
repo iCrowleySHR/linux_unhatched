@@ -623,3 +623,70 @@ O pipe é uma das funcionalidades mais poderosas do shell, permitindo **combinar
 
 ---
 
+
+## 💀 Comando `kill`
+
+O comando `kill` envia **sinais a processos**, geralmente para encerrá-los.
+
+### 🔹 Sintaxe
+```bash
+kill [sinal] PID
+```
+
+### 🔹 Exemplos
+```bash
+kill 1234                  # Envia o sinal padrão (TERM) ao processo 1234
+kill -9 1234               # Envia o sinal SIGKILL (encerra imediatamente)
+kill -15 1234              # Envia o sinal SIGTERM (encerra educadamente)
+```
+
+### 🔹 Sinais comuns
+| Sinal | Nome     | Ação                        |
+|-------|----------|-----------------------------|
+| `1`   | SIGHUP   | Reinicia o processo         |
+| `9`   | SIGKILL  | Encerra imediatamente       |
+| `15`  | SIGTERM  | Encerra normalmente (padrão)|
+
+---
+
+## 🔫 Comando `pkill`
+
+O comando `pkill` termina processos **com base no nome**, sem precisar do PID.
+
+### 🔹 Sintaxe
+```bash
+pkill [opções] nome
+```
+
+### 🔹 Exemplos
+```bash
+pkill firefox             # Encerra todos os processos "firefox"
+pkill -u usuario          # Encerra processos do usuário especificado
+pkill -f "comando longo"  # Combina com a linha de comando completa
+```
+
+---
+
+## ⚰️ Comando `killall`
+
+O comando `killall` encerra **todos os processos com um nome exato**.
+
+### 🔹 Sintaxe
+```bash
+killall [opções] nome
+```
+
+### 🔹 Exemplos
+```bash
+killall firefox           # Encerra todos os processos "firefox"
+killall -u usuario        # Encerra todos os processos de um usuário
+killall -q nome           # Silencioso (não exibe erro se não encontrar)
+```
+
+---
+
+### 🔐 Importante:
+- Encerrar processos críticos pode travar o sistema.
+- Pode ser necessário usar `sudo` para encerrar processos de outros usuários.
+
+---
