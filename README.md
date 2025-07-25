@@ -392,3 +392,106 @@ cat arquivo.txt | wc -l         # Conta linhas da saída do cat
 ```
 
 ---
+
+
+## 🔍 Comando `grep`
+
+O comando `grep` é utilizado para **procurar padrões de texto** em arquivos ou na saída de outros comandos.
+
+### 🔹 Sintaxe
+```bash
+grep [opções] "padrão" [arquivo]
+```
+
+### 🔹 Exemplos básicos
+```bash
+grep "erro" log.txt              # Busca a palavra "erro"
+grep -i "linux" texto.txt       # Ignora maiúsculas/minúsculas
+grep -n "senha" config.txt      # Mostra número da linha
+grep -r "chave" /etc            # Busca recursivamente em diretórios
+grep -v "ok" status.txt         # Exclui linhas com "ok"
+```
+
+---
+
+### 🔹 Opções comuns
+
+| Opção   | Descrição                                         |
+|---------|---------------------------------------------------|
+| `-i`    | Ignora maiúsculas/minúsculas                      |
+| `-v`    | Inverte a busca (mostra linhas que **não** combinam) |
+| `-n`    | Mostra número das linhas                          |
+| `-r`    | Busca recursiva em diretórios                     |
+| `-l`    | Mostra apenas os **nomes dos arquivos** que têm correspondência |
+| `-c`    | Conta quantas linhas correspondem ao padrão       |
+| `-w`    | Combina palavras inteiras                         |
+| `-x`    | Combina linhas inteiras                           |
+| `-A N`  | Mostra N linhas **após** a linha correspondente   |
+| `-B N`  | Mostra N linhas **antes** da linha correspondente |
+| `-C N`  | Mostra N linhas **antes e depois**                |
+| `--color` | Destaca as correspondências com cor             |
+
+---
+
+### 🔹 Expressões regulares com `grep`
+
+- `.` → qualquer caractere  
+- `^` → início da linha  
+- `$` → fim da linha  
+- `[]` → conjunto de caracteres  
+- `.*` → qualquer sequência  
+- `\` → escape para caracteres especiais  
+
+```bash
+grep "^Erro" log.txt           # Linhas que começam com "Erro"
+grep "fim$" log.txt            # Linhas que terminam com "fim"
+grep "[0-9]" relatorio.txt     # Linhas com números
+```
+
+---
+
+### 🔹 Combinando com outros comandos
+
+```bash
+dmesg | grep usb
+ps aux | grep firefox
+cat arquivo.txt | grep -i "palavra"
+```
+
+---
+
+
+## 🧾 Comando `head`
+
+O comando `head` exibe as **primeiras linhas de um arquivo** (padrão: 10 linhas).
+
+### 🔹 Sintaxe
+```bash
+head [opções] [arquivo]
+```
+
+### 🔹 Exemplos
+```bash
+head arquivo.txt                # Mostra as 10 primeiras linhas
+head -n 5 arquivo.txt           # Mostra as 5 primeiras linhas
+```
+
+---
+
+## 📄 Comando `tail`
+
+O comando `tail` exibe as **últimas linhas de um arquivo** (padrão: 10 linhas).
+
+### 🔹 Sintaxe
+```bash
+tail [opções] [arquivo]
+```
+
+### 🔹 Exemplos
+```bash
+tail arquivo.txt                # Mostra as 10 últimas linhas
+tail -n 20 arquivo.txt          # Mostra as 20 últimas linhas
+tail -f log.txt                 # Acompanha em tempo real (logs)
+```
+
+---
