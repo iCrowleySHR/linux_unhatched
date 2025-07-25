@@ -537,5 +537,89 @@ Se o arquivo precisar de permissões de root:
 ```bash
 sudo nano /etc/hosts
 ```
+---
+
+## 🧠 Comando `ps`
+
+O comando `ps` exibe informações sobre os **processos em execução** no sistema.
+
+### 🔹 Sintaxe
+```bash
+ps [opções]
+```
+
+### 🔹 Exemplos
+```bash
+ps                      # Mostra processos do terminal atual
+ps -e                   # Lista todos os processos do sistema
+ps -ef                  # Formato completo com detalhes
+ps aux                 # Exibe todos os processos em formato BSD
+ps -u usuario           # Filtra por usuário
+```
+
+### 🔹 Explicação dos campos comuns
+- `PID` → ID do processo  
+- `TTY` → Terminal associado  
+- `TIME` → Tempo de CPU usado  
+- `CMD` → Comando que iniciou o processo
 
 ---
+
+## 🔎 Comando `pgrep`
+
+O `pgrep` é usado para **procurar o PID de processos** com base no nome.
+
+### 🔹 Sintaxe
+```bash
+pgrep [opções] nome
+```
+
+### 🔹 Exemplos
+```bash
+pgrep firefox             # Mostra PIDs do processo "firefox"
+pgrep -l ssh              # Mostra PIDs com nomes (l = list)
+pgrep -u usuario          # Filtra por usuário
+```
+
+---
+
+## 🌳 Comando `pstree`
+
+Exibe os processos em execução como uma **árvore hierárquica**, mostrando quais processos foram iniciados por outros.
+
+### 🔹 Sintaxe
+```bash
+pstree [opções]
+```
+
+### 🔹 Exemplos
+```bash
+pstree                   # Mostra a árvore de processos
+pstree -p                # Mostra PIDs
+pstree -u                # Mostra usuários dos processos
+pstree nome              # Filtra por nome do processo
+```
+
+---
+
+## 🔗 Operador Pipe (`|`)
+
+O **pipe** (`|`) é usado para **encaminhar a saída de um comando como entrada para outro comando**, permitindo criar fluxos de processamento no terminal.
+
+### 🔹 Sintaxe
+```bash
+comando1 | comando2
+```
+
+### 🔹 Exemplos
+```bash
+ps aux | grep apache          # Procura por "apache" nos processos
+cat arquivo.txt | sort        # Ordena o conteúdo do arquivo
+dmesg | less                  # Pagina a saída do dmesg
+ls -l | wc -l                 # Conta quantas linhas (arquivos) há
+```
+
+O pipe é uma das funcionalidades mais poderosas do shell, permitindo **combinar comandos para criar filtros e relatórios personalizados**.
+
+---
+
