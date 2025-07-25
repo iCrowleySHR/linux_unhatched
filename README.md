@@ -1004,3 +1004,64 @@ dnf install nome_do_pacote
 ```
 
 ---
+
+## 🔌 Desligar e Reiniciar o Sistema
+
+No Linux, você pode desligar ou reiniciar o sistema usando comandos simples no terminal. Normalmente, é necessário ter permissões de superusuário (`sudo`).
+
+---
+
+### 🔹 Comando `shutdown`
+
+Desliga ou reinicia o sistema com opções personalizadas.
+
+#### 🔸 Sintaxe
+```bash
+shutdown [opções] [tempo] [mensagem]
+```
+
+#### 🔸 Exemplos
+```bash
+sudo shutdown now                # Desliga imediatamente
+sudo shutdown -h now             # Desliga (halt) imediatamente
+sudo shutdown -r now             # Reinicia imediatamente
+sudo shutdown +10 "Salvando arquivos..."  # Desliga em 10 minutos com aviso
+```
+
+---
+
+### 🔹 Comando `poweroff`
+
+Desliga o sistema imediatamente.
+```bash
+sudo poweroff
+```
+
+---
+
+### 🔹 Comando `reboot`
+
+Reinicia o sistema.
+```bash
+sudo reboot
+```
+
+---
+
+### 🔹 Comando `halt`
+
+Interrompe o sistema (sem desligar a energia em alguns casos).
+```bash
+sudo halt
+```
+
+---
+
+### 🕒 Cancelar desligamento agendado
+
+Se um desligamento estiver agendado com `shutdown +tempo`, você pode cancelá-lo:
+```bash
+sudo shutdown -c
+```
+
+---
