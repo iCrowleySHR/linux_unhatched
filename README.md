@@ -690,3 +690,51 @@ killall -q nome           # Silencioso (não exibe erro se não encontrar)
 - Pode ser necessário usar `sudo` para encerrar processos de outros usuários.
 
 ---
+
+## ⚙️ Comando `systemctl`
+
+O comando `systemctl` é utilizado para **gerenciar serviços, unidades e o estado do sistema** no Linux que utiliza o `systemd` (como Ubuntu, Debian, Fedora e derivados).
+
+### 🔹 Sintaxe
+```bash
+systemctl [opção] [serviço]
+```
+
+---
+
+### 🔹 Comandos mais comuns
+
+| Comando                         | Ação                                           |
+|----------------------------------|------------------------------------------------|
+| `systemctl status`              | Mostra o status geral do `systemd`            |
+| `systemctl status nome.service` | Mostra o status de um serviço específico       |
+| `systemctl start nome.service`  | Inicia o serviço                               |
+| `systemctl stop nome.service`   | Para o serviço                                 |
+| `systemctl restart nome.service`| Reinicia o serviço                             |
+| `systemctl reload nome.service` | Recarrega as configurações sem reiniciar       |
+| `systemctl enable nome.service` | Ativa o serviço para iniciar com o sistema     |
+| `systemctl disable nome.service`| Desativa o serviço no boot                     |
+| `systemctl is-active nome.service` | Verifica se o serviço está ativo           |
+| `systemctl list-units --type=service` | Lista todos os serviços carregados       |
+
+---
+
+### 🔹 Exemplos
+```bash
+systemctl status apache2.service          # Ver status do Apache
+systemctl start apache2.service           # Inicia o Apache
+systemctl stop apache2.service            # Para o Apache
+systemctl restart sshd.service            # Reinicia o SSH
+systemctl enable nginx.service            # Ativa o Nginx na inicialização
+systemctl disable bluetooth.service       # Desativa o Bluetooth no boot
+```
+
+---
+
+### 🔹 Dica
+Para rodar a maioria desses comandos, é necessário usar `sudo`:
+```bash
+sudo systemctl restart nome.service
+```
+
+---
