@@ -946,3 +946,61 @@ Esse comando (`apt`) é mais recente e recomendado para uso interativo. Já `apt
 
 ---
 
+
+## 📦 Comando `yum`
+
+O `yum` (Yellowdog Updater Modified) é um **gerenciador de pacotes** usado em sistemas Linux baseados em **RPM** (Red Hat, CentOS, Fedora).
+
+Ele permite instalar, atualizar, remover e pesquisar pacotes a partir de repositórios online.
+
+### 🔹 Sintaxe
+```bash
+yum [opção] [pacote]
+```
+
+---
+
+### 🔹 Comandos comuns
+
+| Comando                            | Ação                                          |
+|-----------------------------------|-----------------------------------------------|
+| `yum install nome`                | Instala um pacote                             |
+| `yum remove nome`                 | Remove um pacote                              |
+| `yum update`                      | Atualiza todos os pacotes                     |
+| `yum update nome`                 | Atualiza apenas o pacote especificado         |
+| `yum search palavra`              | Busca pacotes relacionados à palavra-chave    |
+| `yum info nome`                   | Exibe informações sobre um pacote             |
+| `yum list installed`              | Lista pacotes instalados                      |
+| `yum list available`              | Lista pacotes disponíveis                     |
+| `yum clean all`                   | Limpa cache local do YUM                      |
+
+---
+
+### 🔹 Exemplos
+
+```bash
+yum install httpd                    # Instala o servidor Apache
+yum remove nano                      # Remove o editor nano
+yum update                          # Atualiza todos os pacotes
+yum search mysql                    # Procura por pacotes relacionados ao MySQL
+yum info nginx                      # Exibe informações do pacote Nginx
+```
+
+---
+
+### 🔐 Dica
+Você pode precisar usar `sudo`:
+```bash
+sudo yum install nome_do_pacote
+```
+
+---
+
+### 🔁 Substituição pelo `dnf`
+
+Em distribuições mais recentes como Fedora, o `yum` foi substituído por `dnf`:
+```bash
+dnf install nome_do_pacote
+```
+
+---
