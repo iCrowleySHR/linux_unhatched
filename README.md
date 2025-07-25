@@ -495,3 +495,47 @@ tail -f log.txt                 # Acompanha em tempo real (logs)
 ```
 
 ---
+
+
+## ✏️ Comando `nano`
+
+O `nano` é um **editor de texto simples e interativo** no terminal, usado para criar e editar arquivos diretamente pela linha de comando.
+
+### 🔹 Sintaxe
+```bash
+nano [arquivo]
+```
+
+### 🔹 Exemplos
+```bash
+nano texto.txt              # Abre (ou cria) o arquivo texto.txt
+nano /etc/hosts             # Edita um arquivo de configuração (precisa de sudo)
+```
+
+---
+
+### 🔹 Atalhos úteis dentro do `nano`
+
+| Atalho            | Ação                                |
+|------------------|--------------------------------------|
+| `CTRL + O`       | Salvar (gravar) o arquivo            |
+| `CTRL + X`       | Sair do editor                       |
+| `CTRL + G`       | Ajuda                               |
+| `CTRL + K`       | Cortar linha                        |
+| `CTRL + U`       | Colar linha                         |
+| `CTRL + W`       | Procurar no texto                    |
+| `CTRL + \`       | Substituir texto                     |
+| `CTRL + C`       | Mostrar posição do cursor            |
+| `ALT + U`        | Desfazer última ação (versões mais recentes) |
+
+⚠️ O `nano` salva automaticamente o arquivo com `CTRL + O`. Ele pedirá confirmação do nome antes de salvar.
+
+---
+
+### 🔹 Dica
+Se o arquivo precisar de permissões de root:
+```bash
+sudo nano /etc/hosts
+```
+
+---
