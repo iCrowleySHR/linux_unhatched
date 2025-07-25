@@ -738,3 +738,35 @@ sudo systemctl restart nome.service
 ```
 
 ---
+
+## 🧩 Foreground e Background no Terminal
+
+No Linux, comandos podem ser executados em **foreground** (primeiro plano) ou **background** (segundo plano).
+
+---
+
+### 🔹 Foreground (primeiro plano)
+
+É o modo padrão: o terminal **fica ocupado** até o comando terminar.
+
+```bash
+firefox                # Executa em foreground (bloqueia o terminal)
+```
+
+---
+
+### 🔹 Background (segundo plano)
+
+Executa o processo em segundo plano, **liberando o terminal** para outros comandos.
+
+```bash
+firefox &              # Inicia o Firefox em background
+```
+
+A saída mostra o número do job e o PID:
+```bash
+[1] 12345
+```
+
+---
+
