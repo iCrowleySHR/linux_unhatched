@@ -1255,3 +1255,64 @@ sudo yum install vim       # RHEL/CentOS
 
 ---
 
+## 📜 Comando `history`
+
+O comando `history` exibe uma **lista dos comandos digitados anteriormente** no terminal, com numeração sequencial.
+
+### 🔹 Sintaxe
+```bash
+history [número]
+```
+
+---
+
+### 🔹 Exemplos
+
+```bash
+history               # Mostra todo o histórico do terminal
+history 20            # Mostra os últimos 20 comandos
+```
+
+---
+
+### 🔹 Reutilizar comandos do histórico
+
+| Comando             | Ação                                        |
+|---------------------|---------------------------------------------|
+| `!n`               | Executa o comando de número `n`             |
+| `!!`               | Executa o último comando novamente          |
+| `!palavra`         | Executa o último comando que começa com "palavra" |
+| `!sudo`            | Executa o último comando iniciado com "sudo" |
+
+---
+
+### 🔹 Apagar o histórico
+
+```bash
+history -c           # Limpa todo o histórico da sessão atual
+```
+
+> ⚠️ Isso não apaga o arquivo `.bash_history` no disco.
+
+---
+
+### 🔹 Arquivo de histórico
+
+- O histórico é salvo em:
+```bash
+~/.bash_history       # Para usuários usando bash
+```
+
+- Para salvar o histórico manualmente:
+```bash
+history -w
+```
+
+---
+
+### 🔐 Dica de segurança
+
+Evite digitar senhas diretamente em comandos, pois elas podem ficar salvas no histórico.
+
+---
+
