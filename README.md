@@ -1316,3 +1316,56 @@ Evite digitar senhas diretamente em comandos, pois elas podem ficar salvas no hi
 
 ---
 
+## 📄 Comando `touch`
+
+O comando `touch` é utilizado para **criar arquivos vazios** ou **atualizar a data e hora de modificação** de arquivos existentes.
+
+### 🔹 Sintaxe
+```bash
+touch [opções] nome_do_arquivo
+```
+
+---
+
+### 🔹 Exemplos
+
+```bash
+touch novo_arquivo.txt            # Cria um arquivo vazio
+touch arquivo1.txt arquivo2.txt   # Cria vários arquivos de uma vez
+touch ~/documentos/nota.txt       # Cria em um caminho específico
+```
+
+Se o arquivo já existir, o `touch` apenas **atualiza o timestamp de modificação** (data e hora).
+
+---
+
+### 🔹 Opções úteis
+
+| Opção     | Descrição                                    |
+|-----------|----------------------------------------------|
+| `-c`      | Não cria arquivo se ele não existir          |
+| `-t` [[AAAAMMDDhhmm]] | Define uma data/hora específica |
+| `-a`      | Atualiza apenas o tempo de acesso            |
+| `-m`      | Atualiza apenas o tempo de modificação       |
+
+---
+
+### 🔹 Exemplo com data/hora personalizada
+
+```bash
+touch -t 202507251200 meu_arquivo.txt
+```
+> Define a data de modificação como 25/07/2025 às 12:00.
+
+---
+
+### 🔹 Dica
+
+O `touch` é muito usado para:
+- Criar arquivos rapidamente para testes
+- Atualizar timestamps em scripts
+- Garantir que um arquivo exista antes de escrever nele
+
+---
+
+
