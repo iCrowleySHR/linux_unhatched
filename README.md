@@ -1162,3 +1162,96 @@ sudo userdel -r maria                 # Remove o usuário e seu diretório home
 ⚠️ Use com cuidado, especialmente com `-r`, pois os arquivos do usuário serão apagados.
 
 ---
+
+## ✍️ Editor de Texto `vi` (ou `vim`)
+
+O `vi` é um dos editores de texto mais antigos e poderosos no Linux. O `vim` (Vi IMproved) é uma versão aprimorada, geralmente já instalada nos sistemas.
+
+---
+
+### 🔹 Abrir arquivo com `vi`
+
+```bash
+vi nome_do_arquivo
+```
+
+---
+
+### 🔹 Modos do `vi`
+
+| Modo         | Função                                         |
+|--------------|------------------------------------------------|
+| **Normal**   | Navegação e comandos (modo padrão ao abrir)    |
+| **Inserção** | Digitar e editar texto                         |
+| **Visual**   | Selecionar texto                               |
+| **Linha de comando** | Executar comandos como salvar e sair |
+
+---
+
+### 🔹 Comandos principais
+
+#### ▶️ Entrar no modo de inserção
+(No modo normal, pressione uma das teclas abaixo)
+
+| Comando | Ação                         |
+|---------|------------------------------|
+| `i`     | Inserir antes do cursor      |
+| `a`     | Inserir após o cursor        |
+| `o`     | Nova linha abaixo            |
+| `O`     | Nova linha acima             |
+
+---
+
+#### 💾 Salvar e sair (modo comando)
+(Pressione `ESC` para sair da inserção, depois digite:)
+
+| Comando    | Ação                        |
+|------------|-----------------------------|
+| `:w`       | Salva o arquivo             |
+| `:q`       | Sai (só se não houver alterações) |
+| `:q!`      | Sai sem salvar              |
+| `:wq` ou `ZZ` | Salva e sai             |
+
+---
+
+#### 🔍 Navegação no modo normal
+
+| Tecla      | Ação                         |
+|------------|------------------------------|
+| `h`, `j`, `k`, `l` | Esquerda, baixo, cima, direita |
+| `0` / `^`  | Início da linha              |
+| `$`        | Fim da linha                 |
+| `G`        | Vai para o fim do arquivo    |
+| `gg`       | Vai para o início do arquivo |
+| `:` + número | Vai para linha específica (`:10`) |
+
+---
+
+#### ✂️ Edição e manipulação
+
+| Comando | Ação                          |
+|---------|-------------------------------|
+| `dd`    | Apaga (corta) linha           |
+| `yy`    | Copia linha                   |
+| `p`     | Cola abaixo do cursor         |
+| `x`     | Apaga caractere               |
+| `u`     | Desfaz                        |
+| `Ctrl + r` | Refaz                     |
+
+---
+
+### 🧠 Dica
+
+Para iniciantes, o `vim` pode ajudar com mensagens e realce:
+```bash
+vim nome_do_arquivo
+```
+
+Se não tiver o `vim`, instale com:
+```bash
+sudo apt install vim       # Debian/Ubuntu
+sudo yum install vim       # RHEL/CentOS
+```
+
+---
+
