@@ -1650,4 +1650,26 @@ sudo apt install alien         # Debian/Ubuntu
 
 ---
 
+## 🔍 Comando `locate`
 
+O `locate` é um comando usado para buscar arquivos e diretórios de forma rápida no sistema Linux. Ele consulta um **banco de dados indexado** com os caminhos dos arquivos, o que torna a busca quase instantânea.
+
+#### 🧪 Uso básico
+
+```bash
+locate nome_do_arquivo
+```
+
+#### ⚠️ Observação
+
+Se o `locate` não encontrar arquivos recém-criados, atualize o banco de dados com:
+
+```bash
+sudo updatedb
+```
+
+#### 💡 Exemplo
+
+```bash
+locate nginx.conf
+```
