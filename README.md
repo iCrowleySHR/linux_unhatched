@@ -1114,6 +1114,125 @@ sudo useradd -m -s /bin/bash ana        # Cria com shell bash
 - `-G` → Adiciona o usuário a grupos extras
 
 ---
+---
+
+## ➕ Comando `adduser`
+
+O comando `adduser` é uma **ferramenta interativa para adicionar usuários** ao sistema. Ele é mais amigável do que `useradd`, pois cria automaticamente o diretório home, define permissões padrão e solicita senha.
+
+> ⚠️ Em muitas distribuições, `adduser` é um **script que usa `useradd` por trás**, mas com mais facilidades.
+
+---
+
+### 🔹 Sintaxe
+```bash
+adduser nome_do_usuario
+```
+
+---
+
+### 🔹 Exemplo
+```bash
+sudo adduser joao
+```
+
+O sistema perguntará:
+- Nova senha
+- Confirmação da senha
+- Nome completo (opcional)
+- Informações adicionais (opcional)
+
+---
+
+### 🔹 Comportamento do `adduser`
+- Cria o diretório `/home/joao`
+- Define permissões padrão
+- Copia arquivos padrão de `/etc/skel`
+- Solicita senha
+- Cria grupo com o mesmo nome do usuário
+
+---
+
+### 🔹 Adicionar a grupos (ex: sudo)
+
+```bash
+sudo adduser joao sudo
+```
+
+> Adiciona o usuário "joao" ao grupo `sudo`, permitindo acesso administrativo.
+
+---
+
+### 🔹 Dica
+
+- Em sistemas baseados em Debian/Ubuntu, use `adduser` para uma criação mais simplificada.
+- Em sistemas baseados em RHEL (Red Hat/CentOS), geralmente apenas `useradd` está disponível por padrão.
+
+---
+
+
+## 👥 Comando `groupadd`
+
+O comando `groupadd` é usado para **criar novos grupos de usuários** no sistema Linux.
+
+---
+
+### 🔹 Sintaxe
+```bash
+groupadd [opções] nome_do_grupo
+```
+
+---
+
+### 🔹 Exemplos
+
+```bash
+sudo groupadd desenvolvedores         # Cria um grupo chamado "desenvolvedores"
+sudo groupadd -g 1005 suporte         # Cria o grupo "suporte" com GID específico
+```
+
+---
+
+### 🔹 Opções comuns
+
+| Opção    | Descrição                                  |
+|----------|--------------------------------------------|
+| `-g`     | Define o GID (Group ID) do grupo           |
+| `-f`     | Não gera erro se o grupo já existir        |
+| `-K`     | Define configurações específicas temporárias|
+
+---
+
+### 🔹 Verificar grupos existentes
+
+```bash
+cat /etc/group             # Lista todos os grupos do sistema
+```
+
+---
+
+### 🔹 Adicionar um usuário a um grupo
+
+```bash
+sudo usermod -aG grupo usuario
+```
+
+Exemplo:
+```bash
+sudo usermod -aG desenvolvedores joao
+```
+
+---
+
+### 🔐 Dica
+
+- Para aplicar grupos recém atribuídos, o usuário pode precisar sair e entrar novamente na sessão ou usar:
+```bash
+newgrp nome_do_grupo
+```
+
+---
+
 
 ## 🧾 Comando `usermod`
 
