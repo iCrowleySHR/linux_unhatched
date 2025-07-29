@@ -1706,4 +1706,35 @@ Dentro do modo interativo, alguns comandos úteis são:
 
 > 🛑 Atenção: Alterações só são salvas após usar o comando `w`.
 
+---
 
+## 🧾 Comando `mkfs`
+
+O `mkfs` (make filesystem) é usado para **formatar uma partição** ou disco com um sistema de arquivos no Linux.
+
+> ⚠️ Cuidado: Este comando **apaga todos os dados** da partição selecionada.
+
+#### 🧪 Uso básico
+
+```bash
+sudo mkfs -t tipo /dev/sdXn
+```
+
+- `-t tipo`: especifica o tipo de sistema de arquivos (ex: `ext4`, `vfat`, `ntfs`, etc.)
+- `/dev/sdXn`: representa a partição (ex: `/dev/sda1`, `/dev/sdb2`)
+
+#### 💡 Exemplos
+
+Formatar uma partição como `ext4`:
+
+```bash
+sudo mkfs -t ext4 /dev/sdb1
+```
+
+Formatar uma partição como FAT32 (útil para pendrives):
+
+```bash
+sudo mkfs.vfat -F 32 /dev/sdb1
+```
+
+> 🛑 Atenção: Certifique-se de usar o caminho correto da partição para não apagar dados importantes.
