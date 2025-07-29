@@ -1738,3 +1738,50 @@ sudo mkfs.vfat -F 32 /dev/sdb1
 ```
 
 > 🛑 Atenção: Certifique-se de usar o caminho correto da partição para não apagar dados importantes.
+
+---
+
+## 🔗 Comando `mount`
+
+O `mount` é usado para **montar sistemas de arquivos** (partições, pendrives, HDs, imagens ISO etc.) em diretórios acessíveis no sistema Linux.
+
+#### 🧪 Uso básico
+
+```bash
+sudo mount /dev/sdXn /mnt/ponto_de_montagem
+```
+
+- `/dev/sdXn`: partição ou dispositivo que será montado (ex: `/dev/sdb1`)
+- `/mnt/ponto_de_montagem`: diretório onde o conteúdo será acessado
+
+#### 💡 Exemplo
+
+Montar uma partição `ext4` no diretório `/mnt/usb`:
+
+```bash
+sudo mount /dev/sdb1 /mnt/usb
+```
+
+#### 📌 Observações
+
+- O diretório de montagem deve existir antes de montar.
+- Para montar com sistema de arquivos específico:
+
+```bash
+sudo mount -t tipo_fs /dev/sdXn /mnt/ponto_de_montagem
+```
+
+Exemplo com `ntfs`:
+
+```bash
+sudo mount -t ntfs /dev/sdb1 /mnt/hd
+```
+
+- Para desmontar depois:
+
+```bash
+sudo umount /mnt/usb
+```
+
+> 🔒 Pode ser necessário usar `sudo` para permissões de leitura/escrita adequadas.
+
