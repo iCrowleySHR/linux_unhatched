@@ -1673,3 +1673,37 @@ sudo updatedb
 ```bash
 locate nginx.conf
 ```
+---
+
+## 💽 Comando `fdisk`
+
+O `fdisk` é um utilitário de linha de comando usado para **criar, visualizar, modificar ou excluir partições** em discos no Linux.
+
+> ⚠️ É uma ferramenta poderosa que requer permissões de superusuário e pode apagar dados se usada incorretamente.
+
+#### 🧪 Ver partições de um disco
+
+```bash
+sudo fdisk -l
+```
+
+Exibe a tabela de partições de todos os discos detectados pelo sistema.
+
+#### 💡 Editar partições de um disco específico
+
+```bash
+sudo fdisk /dev/sdX
+```
+
+Substitua `sdX` pelo identificador do disco (ex: `sda`, `sdb`).
+
+Dentro do modo interativo, alguns comandos úteis são:
+- `m`: ajuda
+- `p`: listar partições
+- `d`: deletar partição
+- `n`: nova partição
+- `w`: escrever alterações no disco
+
+> 🛑 Atenção: Alterações só são salvas após usar o comando `w`.
+
+
