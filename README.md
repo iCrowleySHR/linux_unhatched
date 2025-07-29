@@ -944,7 +944,57 @@ sudo apt install nome
 
 Esse comando (`apt`) é mais recente e recomendado para uso interativo. Já `apt-get` é ideal para scripts e automações.
 
+
 ---
+
+## 📦 Comando `apt`
+
+O comando `apt` é utilizado para **gerenciar pacotes** em sistemas baseados em **Debian**, como Ubuntu.
+
+> ⚠️ `apt` é uma interface simplificada que combina funções de comandos mais antigos como `apt-get` e `apt-cache`.
+
+---
+
+### 🔹 Sintaxe
+```bash
+apt [opção] [pacote]
+```
+
+---
+
+### 🔹 Comandos comuns
+
+| Comando                          | Ação                                        |
+|----------------------------------|---------------------------------------------|
+| `sudo apt update`               | Atualiza a lista de pacotes disponíveis     |
+| `sudo apt upgrade`              | Atualiza todos os pacotes instalados        |
+| `sudo apt install nome`         | Instala um pacote                           |
+| `sudo apt remove nome`          | Remove um pacote                            |
+| `sudo apt purge nome`           | Remove pacote e arquivos de configuração    |
+| `sudo apt autoremove`           | Remove dependências não utilizadas          |
+| `sudo apt search termo`         | Busca pacotes com o termo informado         |
+| `apt show nome`                 | Mostra informações sobre um pacote          |
+| `apt list --installed`          | Lista pacotes instalados                    |
+
+---
+
+### 🔹 Exemplos
+
+```bash
+sudo apt update                      # Atualiza o repositório
+sudo apt install vim                 # Instala o editor Vim
+sudo apt remove firefox              # Remove o Firefox
+sudo apt autoremove                  # Remove pacotes desnecessários
+sudo apt search python               # Busca pacotes relacionados ao Python
+```
+
+---
+
+### 🔹 Dica
+
+- Sempre use `sudo` com `apt` para garantir permissões adequadas.
+- Combine `update` e `upgrade` para manter o sistema atualizado:
+
 
 
 ## 📦 Comando `yum`
