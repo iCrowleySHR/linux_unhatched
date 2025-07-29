@@ -1536,5 +1536,118 @@ O `touch` é muito usado para:
 - Garantir que um arquivo exista antes de escrever nele
 
 ---
+---
+
+## 🌐 Comando `wget`
+
+O `wget` é um utilitário de linha de comando usado para **baixar arquivos da internet** via HTTP, HTTPS ou FTP.
+
+---
+
+### 🔹 Sintaxe
+```bash
+wget [opções] URL
+```
+
+---
+
+### 🔹 Exemplos
+
+```bash
+wget https://exemplo.com/arquivo.zip              # Baixa o arquivo
+wget -O novo_nome.zip https://exemplo.com/zip     # Salva com nome personalizado
+wget -c https://exemplo.com/video.mp4             # Continua download interrompido
+wget -P /home/usuario/downloads URL               # Salva em um diretório específico
+```
+
+---
+
+### 🔹 Opções úteis
+
+| Opção         | Descrição                                        |
+|---------------|--------------------------------------------------|
+| `-O nome`     | Salva o arquivo com nome personalizado           |
+| `-c`          | Continua download interrompido                   |
+| `-P caminho`  | Define o diretório onde o arquivo será salvo     |
+| `--limit-rate=200k` | Limita velocidade de download              |
+| `-r`          | Faz download recursivo (para sites)              |
+| `--no-check-certificate` | Ignora erro de certificado SSL       |
+
+---
+
+### 🔹 Exemplo avançado: baixar site
+```bash
+wget -r -np -k http://exemplo.com
+```
+- `-r` → Recursivo  
+- `-np` → Não sobe para diretórios pai  
+- `-k` → Converte links para navegação offline
+
+---
+
+### 🔐 Dica
+
+Se `wget` não estiver instalado:
+```bash
+sudo apt install wget       # Debian/Ubuntu
+sudo yum install wget       # Red Hat/CentOS
+```
+
+---
+
+
+## 👽 Comando `alien`
+
+O comando `alien` é utilizado para **converter pacotes entre diferentes formatos**, como `.rpm` (Red Hat) e `.deb` (Debian/Ubuntu).
+
+---
+
+### 🔹 Sintaxe
+```bash
+sudo alien [opções] pacote
+```
+
+---
+
+### 🔹 Exemplos
+
+```bash
+sudo alien pacote.rpm                     # Converte .rpm para .deb
+sudo alien -d pacote.rpm                  # Converte para .deb explicitamente
+sudo alien -r pacote.deb                  # Converte .deb para .rpm
+sudo alien -k pacote.rpm                  # Mantém o número da versão original
+sudo alien -i pacote.rpm                  # Converte e instala o pacote
+```
+
+---
+
+### 🔹 Opções úteis
+
+| Opção    | Descrição                                        |
+|----------|--------------------------------------------------|
+| `-d`     | Gera um pacote `.deb`                            |
+| `-r`     | Gera um pacote `.rpm`                            |
+| `-k`     | Mantém a versão original                         |
+| `-i`     | Instala o pacote após conversão                  |
+| `--scripts` | Mantém scripts de pós-instalação (com cuidado) |
+
+---
+
+### 🔹 Instalação do `alien`
+
+Se não estiver instalado:
+```bash
+sudo apt install alien         # Debian/Ubuntu
+```
+
+---
+
+### ⚠️ Atenção
+
+- Nem todos os pacotes convertidos funcionam perfeitamente.
+- Teste primeiro em ambientes não críticos.
+- Sempre prefira pacotes nativos da sua distribuição.
+
+---
 
 
