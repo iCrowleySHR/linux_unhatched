@@ -229,3 +229,112 @@ sudo yum install iputils             # RHEL/CentOS
 
 ---
 
+## 🌐 Como Trocar o DNS no Linux
+
+Trocar o DNS (Domain Name System) pode melhorar a velocidade de navegação ou evitar bloqueios regionais. A configuração depende do sistema e gerenciador de rede usado.
+
+---
+
+## 🔧 Método 1: Editando `/etc/resolv.conf`
+
+> ⚠️ Funciona em sistemas simples ou servidores sem gerenciador de rede.
+
+### 🔹 Passo a passo
+
+```bash
+sudo nano /etc/resolv.conf
+```
+
+### 🔹 Exemplo de conteúdo:
+
+```bash
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+```
+
+> Onde:
+> - `8.8.8.8` = Google DNS
+> - `1.1.1.1` = Cloudflare DNS
+
+### 🔸 Observação:
+Esse arquivo pode ser sobrescrito por serviços como `NetworkManager` ou `systemd-resolved`.
+
+---
+
+## 🔧 Método 2: Para sistemas com NetworkManager (mais comum)
+
+### 🔹 Configurar DNS permanentemente
+
+```bash
+nmcli con show                      # Lista conexões de rede
+nmcli con mod "nome-da-conexao" ipv4.dns "8.8.8.8 1.1.1.1"
+nmcli con mod "nome-da-conexao" ipv4.ignore-auto-dns yes
+nmcli con up "nome-da-conexao"     # Reinicia a conexão
+```
+
+### 🔹 Exemplo completo:
+
+```bash
+nmcli con mod "Wired connection 1" ipv4.dns "8.8.8.8 1.1.1.1"
+nmcli con mod "Wired connection 1" ipv4.ignore-auto-dns yes
+nmcli con up "Wired connection 1"
+```
+
+---
+
+## 🔧 Método 3: Usando Netplan (Ubuntu Server)
+
+Se estiver usando Netplan (Ubuntu 18.04+, sem NetworkManager):
+
+### 🔹 Editar o arquivo de configuração YAML
+
+```bash
+sudo nano /etc/netplan/01-netcfg.yaml
+```
+
+### 🔹 Exemplo:
+
+```yaml
+network:
+  version: 2
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      addresses: [192.168.1.100/24]
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses: [8.8.8.8, 1.1.1.1]
+```
+
+### 🔹 Aplicar as mudanças:
+
+```bash
+sudo netplan apply
+```
+
+---
+
+## 🔍 Verificar DNS atual
+
+```bash
+cat /etc/resolv.conf
+```
+
+ou
+
+```bash
+nmcli dev show | grep DNS
+```
+
+---
+
+### ✅ DNS recomendados
+
+| Provedor     | Endereços                    |
+|--------------|------------------------------|
+| Google       | `8.8.8.8`, `8.8.4.4`          |
+| Cloudflare   | `1.1.1.1`, `1.0.0.1`          |
+| OpenDNS      | `208.67.222.222`, `208.67.220.220` |
+
+---
+
