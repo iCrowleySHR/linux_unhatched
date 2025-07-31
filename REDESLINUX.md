@@ -424,3 +424,89 @@ sudo yum install bind-utils     # RHEL/CentOS
 
 ---
 
+## 🔗 Comando `ss`
+
+O comando `ss` (socket statistics) é usado para **listar conexões de rede ativas, portas em uso, escuta de serviços**, entre outras informações. É uma alternativa moderna e mais rápida ao antigo `netstat`.
+
+---
+
+### 🔹 Sintaxe
+```bash
+ss [opções]
+```
+
+---
+
+### 🔹 Exemplos comuns
+
+```bash
+ss -tuln                   # Lista portas TCP/UDP em escuta (listen)
+ss -s                      # Mostra estatísticas de sockets
+ss -tn                     # Lista conexões TCP estabelecidas (com IPs)
+ss -tuna                  # TCP/UDP + IPv4/IPv6 + nomes e IPs
+```
+
+---
+
+### 🔹 Explicação das opções principais
+
+| Opção   | Descrição                               |
+|---------|-------------------------------------------|
+| `-t`    | Conexões TCP                             |
+| `-u`    | Conexões UDP                             |
+| `-l`    | Mostra apenas sockets em escuta (listening) |
+| `-n`    | Não resolve nomes de domínio/serviços     |
+| `-p`    | Mostra o processo/programa que usa a porta |
+| `-a`    | Mostra todas as conexões (inclusive escuta) |
+| `-s`    | Mostra resumo estatístico (como `netstat -s`) |
+
+---
+
+### 🔹 Ver porta e programa associado
+
+```bash
+sudo ss -tulnp
+```
+
+> Mostra portas de rede em escuta, com PID e nome do processo.
+
+---
+
+### 🔹 Filtrar por porta ou endereço
+
+```bash
+ss -tuln sport = :80              # Ver conexões na porta 80
+ss -tn dst 192.168.0.1            # Conexões com destino ao IP informado
+```
+
+---
+
+### 🧠 Dica
+
+Use `ss` com `grep` para refinar resultados:
+
+```bash
+ss -tuln | grep 443
+```
+
+---
+
+### 🆚 Comparativo: `ss` vs `netstat`
+
+| Função               | `ss`         | `netstat`    |
+|----------------------|--------------|--------------|
+| Velocidade           | Mais rápido  | Mais lento   |
+| Detalhamento         | Mais completo| Menos detalhado |
+| Futuro               | Recomendado  | Obsoleto     |
+
+---
+
+### 🔐 Instalação (se necessário)
+
+```bash
+sudo apt install iproute2        # Debian/Ubuntu
+sudo yum install iproute         # Red Hat/CentOS
+```
+
+---
+
