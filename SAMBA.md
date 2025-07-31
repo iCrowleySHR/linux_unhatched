@@ -247,3 +247,69 @@ sudo smbpasswd -a nome
 ```
 
 ---
+---
+
+## 📁 Compartilhamento `[ti]` – Exemplo simples no Samba
+
+```ini
+[ti]
+path = /ti
+available = yes
+browseable = yes
+writable = yes
+valid users = humberto, joao
+```
+
+---
+
+### 🔍 Explicação das diretivas
+
+| Linha                        | Significado                                                                 |
+|-----------------------------|------------------------------------------------------------------------------|
+| `[ti]`                      | Nome do compartilhamento (aparece na rede como `\\servidor\ti`)              |
+| `path = /ti`                | Caminho real no sistema onde os arquivos estão                              |
+| `available = yes`           | Disponível para conexão                                                     |
+| `browseable = yes`          | Aparece na lista de compartilhamentos na rede                               |
+| `writable = yes`            | Permite que os usuários escrevam/alterem arquivos                           |
+| `valid users = humberto, joao` | Apenas os usuários `humberto` e `joao` poderão acessar esse compartilhamento |
+
+---
+
+### 🛠️ Etapas complementares
+
+#### 🔹 Criar a pasta compartilhada:
+```bash
+sudo mkdir -p /ti
+sudo chown root:root /ti
+sudo chmod 770 /ti
+```
+
+#### 🔹 Adicionar usuários ao Samba:
+```bash
+sudo smbpasswd -a humberto
+sudo smbpasswd -a joao
+```
+
+> Os usuários devem já existir no sistema Linux.
+
+---
+
+### 🔄 Aplicar a nova configuração
+
+```bash
+sudo testparm                 # Verifica erros no smb.conf
+sudo service smbd restart    # Reinicia o serviço Samba
+```
+
+---
+
+### ✅ Acesso pelo Windows
+
+No navegador de arquivos do Windows, digite:
+```
+\\ip-do-servidor\ti
+```
+
+Você será solicitado a inserir o nome de usuário e a senha Samba.
+
+---
