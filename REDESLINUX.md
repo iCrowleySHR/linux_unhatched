@@ -338,3 +338,89 @@ nmcli dev show | grep DNS
 
 ---
 
+## 🔍 Comando `nslookup`
+
+O comando `nslookup` (Name Server Lookup) é usado para **consultar registros DNS** de domínios, como endereços IP, servidores de e-mail (MX), entre outros.
+
+---
+
+### 🔹 Sintaxe
+```bash
+nslookup [opções] [domínio ou IP]
+```
+
+---
+
+### 🔹 Exemplos básicos
+
+```bash
+nslookup google.com              # Retorna o IP do domínio
+nslookup 8.8.8.8                 # Retorna o domínio associado ao IP (PTR)
+```
+
+---
+
+### 🔹 Consultar usando um servidor DNS específico
+
+```bash
+nslookup google.com 1.1.1.1     # Consulta usando o DNS da Cloudflare
+```
+
+---
+
+### 🔹 Modo interativo
+
+Você pode digitar apenas:
+```bash
+nslookup
+```
+E depois usar comandos no prompt interativo, como:
+
+```text
+> set type=MX
+> gmail.com
+```
+
+---
+
+### 🔹 Tipos de consulta suportados
+
+| Tipo        | Descrição                         |
+|-------------|-----------------------------------|
+| `A`         | Endereço IPv4 do domínio          |
+| `AAAA`      | Endereço IPv6                     |
+| `MX`        | Servidores de e-mail              |
+| `NS`        | Servidores de nome do domínio     |
+| `CNAME`     | Nome canônico (alias)             |
+| `PTR`       | Inverso (IP → nome)               |
+| `SOA`       | Início da autoridade DNS          |
+
+---
+
+### 🔹 Exemplo: buscar registros MX
+
+```bash
+nslookup -type=MX gmail.com
+```
+
+---
+
+### 🔐 Dica
+
+Se `nslookup` não estiver instalado:
+```bash
+sudo apt install dnsutils       # Debian/Ubuntu
+sudo yum install bind-utils     # RHEL/CentOS
+```
+
+---
+
+### 🆚 Alternativas
+
+| Comando     | Função similar            |
+|-------------|---------------------------|
+| `dig`       | Consulta DNS avançada     |
+| `host`      | Consulta simples e direta |
+
+---
+
