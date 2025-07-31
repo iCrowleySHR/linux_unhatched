@@ -96,3 +96,64 @@ ip -c a
 
 ---
 
+
+## 🌐 Configuração Manual de IP Estático (`/etc/network/interfaces`)
+
+No Debian e derivados (como Ubuntu Server), é possível configurar a interface de rede manualmente pelo arquivo:
+
+```bash
+/etc/network/interfaces
+```
+
+---
+
+### 🔹 Exemplo de configuração
+
+```bash
+auto enp0s3
+iface enp0s3 inet static
+    address 192.168.1.100
+    netmask 255.255.255.0
+    network 192.168.1.0
+    broadcast 192.168.1.255
+    gateway 192.168.1.1
+```
+
+---
+
+### 🔹 Explicação linha a linha
+
+| Linha                         | Significado                                              |
+|------------------------------|----------------------------------------------------------|
+| `auto enp0s3`                | Interface será ativada automaticamente na inicialização |
+| `iface enp0s3 inet static`   | Define que o IP será manual (estático)                  |
+| `address 192.168.1.100`      | IP atribuído à máquina                                   |
+| `netmask 255.255.255.0`      | Máscara de sub-rede (classe C padrão)                   |
+| `network 192.168.1.0`        | Endereço da rede                                         |
+| `broadcast 192.168.1.255`    | Endereço de broadcast da rede                           |
+| `gateway 192.168.1.1`        | IP do gateway padrão (roteador)                         |
+
+---
+
+### 🔹 Ativar a configuração
+
+Após editar o arquivo:
+
+```bash
+sudo systemctl restart networking
+```
+
+ou, dependendo do sistema:
+
+```bash
+sudo ifdown enp0s3 && sudo ifup enp0s3
+```
+
+---
+
+### ⚠️ Dica
+
+- Use `ip a` ou `ip addr` para verificar se a interface recebeu o IP.
+- Em sistemas modernos (Ubuntu Desktop), o **Netplan** pode ser usado no lugar desse método.
+
+---
