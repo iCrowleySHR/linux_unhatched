@@ -157,3 +157,75 @@ sudo ifdown enp0s3 && sudo ifup enp0s3
 - Em sistemas modernos (Ubuntu Desktop), o **Netplan** pode ser usado no lugar desse método.
 
 ---
+
+## 📶 Comando `ping`
+
+O comando `ping` é usado para **testar a conectividade de rede** entre o seu computador e outro dispositivo (host). Ele envia pacotes ICMP e mede o tempo de resposta.
+
+---
+
+### 🔹 Sintaxe
+```bash
+ping [opções] destino
+```
+
+- `destino`: pode ser um endereço IP ou domínio (ex: `8.8.8.8` ou `google.com`)
+
+---
+
+### 🔹 Exemplos
+
+```bash
+ping google.com              # Testa conexão com o Google
+ping 8.8.8.8                 # Testa conexão com servidor DNS do Google
+ping -c 4 github.com         # Envia apenas 4 pacotes
+```
+
+---
+
+### 🔹 Opções úteis
+
+| Opção      | Descrição                                   |
+|------------|---------------------------------------------|
+| `-c N`     | Envia apenas N pacotes                      |
+| `-i SEG`   | Intervalo de tempo entre pacotes            |
+| `-s TAM`   | Define o tamanho do pacote em bytes         |
+| `-t TEMPO` | Define o TTL (Time To Live) dos pacotes     |
+| `-q`       | Modo silencioso (apenas resumo no final)    |
+
+---
+
+### 🔹 Exemplo com intervalo e tamanho
+
+```bash
+ping -c 5 -i 2 -s 128 8.8.8.8
+```
+> Envia 5 pacotes de 128 bytes com intervalo de 2 segundos.
+
+---
+
+### 🔹 Interpretando a saída
+
+```bash
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=117 time=20.3 ms
+```
+
+| Campo       | Significado                          |
+|-------------|--------------------------------------|
+| `64 bytes`  | Tamanho do pacote                    |
+| `icmp_seq`  | Número sequencial do pacote ICMP     |
+| `ttl`       | Tempo de vida (número de saltos)     |
+| `time`      | Tempo de resposta (latência)         |
+
+---
+
+### 🔐 Dica
+
+Se `ping` não estiver instalado:
+```bash
+sudo apt install iputils-ping        # Debian/Ubuntu
+sudo yum install iputils             # RHEL/CentOS
+```
+
+---
+
