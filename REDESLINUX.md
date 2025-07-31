@@ -510,3 +510,84 @@ sudo yum install iproute         # Red Hat/CentOS
 
 ---
 
+## 🌍 Comando `traceroute`
+
+O comando `traceroute` é usado para **mapear o caminho que os pacotes percorrem até um destino** (domínio ou IP), mostrando cada salto (roteador) e o tempo de resposta.
+
+---
+
+### 🔹 Sintaxe
+```bash
+traceroute [opções] destino
+```
+
+---
+
+### 🔹 Exemplo básico
+
+```bash
+traceroute google.com
+```
+
+> Mostra todos os roteadores entre sua máquina e o site do Google.
+
+---
+
+### 🔹 Interpretação da saída
+
+```text
+1  192.168.0.1    1.123 ms  0.873 ms  0.799 ms
+2  10.1.1.1       2.503 ms  2.447 ms  2.410 ms
+3  8.8.8.8        20.122 ms 19.899 ms 20.045 ms
+```
+
+| Coluna               | Significado                         |
+|----------------------|-------------------------------------|
+| Número               | Ordem do salto (hop)                |
+| IP ou domínio        | Endereço do roteador no caminho     |
+| Tempos em ms         | Tempo de resposta de cada tentativa |
+
+---
+
+### 🔹 Opções úteis
+
+| Opção         | Descrição                                       |
+|---------------|-------------------------------------------------|
+| `-n`          | Não resolve nomes de domínio (mostra só IPs)    |
+| `-m N`        | Define número máximo de saltos (padrão: 30)     |
+| `-w SEG`      | Define tempo de espera por resposta (timeout)   |
+| `-q N`        | Número de tentativas por salto (padrão: 3)      |
+| `-I`          | Usa ICMP (como o `ping`) no lugar de UDP        |
+
+---
+
+### 🔹 Exemplo com IPs e 10 saltos
+
+```bash
+traceroute -n -m 10 8.8.8.8
+```
+
+---
+
+### 🔐 Instalação (se necessário)
+
+```bash
+sudo apt install traceroute       # Debian/Ubuntu
+sudo yum install traceroute       # Red Hat/CentOS
+```
+
+> O comando pode ser chamado de `tracert` em alguns sistemas (como no Windows).
+
+---
+
+### 🧠 Dica
+
+Se `traceroute` estiver bloqueado ou filtrado por firewall, tente:
+
+```bash
+traceroute -T google.com       # Usa TCP em vez de UDP
+```
+
+---
+
+
