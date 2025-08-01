@@ -82,3 +82,88 @@ sudo systemctl restart isc-dhcp-server
 ```
 
 ---
+---
+
+## 📌 Reserva de Endereço IP no Servidor DHCP
+
+A **reserva de IP** garante que um dispositivo específico **sempre receba o mesmo IP**, baseado no **endereço MAC** da sua placa de rede.
+
+---
+
+### 🔧 Adicionando reserva no `dhcpd.conf`
+
+Exemplo prático de como reservar um IP para um dispositivo:
+
+```conf
+host impressora {
+  hardware ethernet 00:11:22:33:44:55;
+  fixed-address 192.168.1.150;
+}
+```
+
+---
+
+### 🔍 Explicação
+
+| Linha                             | Significado                                           |
+|----------------------------------|-------------------------------------------------------|
+| `host impressora`                | Nome simbólico da reserva (pode ser qualquer nome)   |
+| `hardware ethernet`              | Endereço MAC da máquina/dispositivo                  |
+| `fixed-address`                  | IP que será reservado para este MAC                  |
+
+---
+
+### 🔁 Exemplo completo dentro de uma sub-rede
+
+```conf
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.100 192.168.1.200;
+  option routers 192.168.1.1;
+  option domain-name-servers 8.8.8.8, 1.1.1.1;
+
+  host servidor {
+    hardware ethernet AA:BB:CC:DD:EE:FF;
+    fixed-address 192.168.1.10;
+  }
+
+  host impressora {
+    hardware ethernet 00:11:22:33:44:55;
+    fixed-address 192.168.1.150;
+  }
+}
+```
+
+---
+
+### 🔐 Dica
+
+- O IP reservado **não precisa estar dentro do `range`**, mas deve estar **dentro da sub-rede**.
+- Evite conflitos com IPs estáticos manuais ou outras reservas.
+
+---
+
+### 🔄 Após modificar o arquivo
+
+```bash
+sudo systemctl restart isc-dhcp-server
+```
+
+E verifique o status:
+```bash
+sudo systemctl status isc-dhcp-server
+```
+
+---
+
+### 📋 Descobrir o MAC Address
+
+Para identificar o MAC do dispositivo, você pode usar:
+
+```bash
+ip link                 # No Linux
+getmac                  # No Windows
+```
+
+Ou ver no roteador/switch se o cliente já conectou alguma vez.
+
+---
