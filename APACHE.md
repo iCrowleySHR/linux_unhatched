@@ -142,5 +142,115 @@ sudo apache2ctl configtest
 | `/var/log/apache2/access.log`    | Log de acessos                      |
 
 ---
+---
+
+## 🐘 Instalar o PHP e usar com Apache2
+
+O PHP é uma linguagem de programação usada para desenvolvimento web dinâmico. Integrado ao Apache, permite criar sites com backend funcional.
+
+---
+
+### 📦 Instalar o PHP com Apache2 no Ubuntu/Debian
+
+```bash
+sudo apt update
+sudo apt install php libapache2-mod-php
+```
+
+---
+
+### ✅ Verificar se o PHP foi instalado
+
+```bash
+php -v
+```
+
+---
+
+### 🔗 Verificar se o módulo do PHP foi carregado no Apache
+
+```bash
+apache2ctl -M | grep php
+```
+
+---
+
+### 📁 Local padrão dos arquivos PHP
+
+```bash
+/var/www/html/
+```
+
+---
+
+### 🧪 Criar um arquivo de teste
+
+```bash
+sudo nano /var/www/html/info.php
+```
+
+Conteúdo:
+
+```php
+<?php
+phpinfo();
+?>
+```
+
+---
+
+### 🌐 Acessar via navegador
+
+Acesse:
+```
+http://localhost/info.php
+```
+
+> Se estiver em outro computador da rede:
+```
+http://IP_DO_SERVIDOR/info.php
+```
+
+---
+
+### 🔁 Reiniciar o Apache
+
+Sempre que fizer mudanças em configurações:
+
+```bash
+sudo systemctl restart apache2
+```
+
+---
+
+### ➕ Instalar módulos adicionais do PHP
+
+Exemplo: suporte a MySQL, JSON e cURL:
+
+```bash
+sudo apt install php-mysql php-curl php-json
+```
+
+---
+
+### 🗑️ Remover o arquivo de teste por segurança
+
+```bash
+sudo rm /var/www/html/info.php
+```
+
+---
+
+### 📄 Arquivo de configuração do PHP
+
+| Arquivo                         | Descrição                         |
+|----------------------------------|-----------------------------------|
+| `/etc/php/8.x/apache2/php.ini`   | Arquivo de configuração principal |
+| `/var/www/html/`                | Onde ficam os arquivos do site    |
+
+> Substitua `8.x` pela versão instalada do PHP (ex: `8.2`).
+
+---
+
 
 
