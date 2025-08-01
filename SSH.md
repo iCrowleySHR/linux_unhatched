@@ -90,4 +90,42 @@ ssh-copy-id usuario@ip_do_servidor
 
 ---
 
-> ✅ Pronto! Agora você pode acessar e gerenciar seu servidor remotamente com segurança via SSH.
+#### 🔓 2. Permitir login root via SSH (opcional e não recomendado em ambientes públicos)
+
+> ⚠️ Use com cautela — habilitar o root via SSH pode ser um risco de segurança.
+
+Edite o arquivo de configuração do SSH:
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Altere ou adicione as seguintes linhas:
+
+```
+PermitRootLogin yes
+PasswordAuthentication yes
+```
+
+> 🚫 Se quiser permitir **apenas com chave SSH**, use:
+> ```
+> PermitRootLogin prohibit-password
+> ```
+
+---
+
+#### 🔄 3. Reiniciar o serviço SSH
+
+```bash
+sudo systemctl restart ssh
+```
+
+---
+
+#### 💻 4. Conectar como root via SSH
+
+```bash
+ssh root@ip_do_servidor
+```
+
+---
